@@ -1,33 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Guessing Game</title>
-
-    <!-- Bootstrap and CSS here-->
-    <style>
-      .center {
-        text-align: center;
-      }
-      ul {
-          list-style: none;
-          padding: 0;
-      }
-      img {
-          display: inline;
-          width: 200px;
-          height: 100px;
-      }
-      #footer {
-          width: 100%;
-          border-top: solid 2px black;
-          background-color: white;
-          position: fixed;
-          bottom: 0;
-      }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
+  <body class='center'>
 
       <div id='app'>
 
@@ -41,14 +19,14 @@
           <div id='input-parent'>
             <!-- Player's guess input, and submit button -->
             <form>  
-              <input maxlength="3" autofocus="true" placeholder="#"><br>
-              <input type="submit" value='Go!'> 
+              <input id='player-input' maxlength="3" autofocus="true" class='center' placeholder="#"><br>
+              <button id='submit'>Go!</button> 
             </form>         
           </div>
 
           <div id='guesses'>
             <!-- unordered list of guesses -->
-            <ul>
+            <ul class='guess'>
               <li>-</li>
               <li>-</li>
               <li>-</li>
@@ -59,8 +37,8 @@
 
           <div id="menu-btns">
             <!-- reset and hint buttons -->
-            <button>Reset</button>
-            <button>Hint</button>
+            <button id='reset'>Reset</button>
+            <button id='hint'>Hint</button>
           </div>
         </div>
       </div>
@@ -69,15 +47,15 @@
 
     <div id='footer'>
         <div>
-          <div class=''>
+          <div class='center'>
             <img src='fa-logo@2x.png'></img>
           </div>
 
-          <div class=''>
+          <div class='center'>
             <h4>Project by YOUR NAME HERE</h4>
           </div>
 
-          <div class=''>
+          <div class='center'>
             <img src='grace_hopper_academy.png'></img>
           </div>
 
