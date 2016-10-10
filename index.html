@@ -4,8 +4,9 @@
   <head>
     <title>Guessing Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
-  <body class='center'>
+  <body class='container center'>
 
       <div id='app'>
 
@@ -16,15 +17,15 @@
         </div>
 
         <div id='main'>
-          <div id='input-parent'>
+          <div id='input-parent' class='row'>
             <!-- Player's guess input, and submit button -->
             <form>  
               <input id='player-input' maxlength="3" autofocus="true" class='center' placeholder="#"><br>
-              <button id='submit'>Go!</button> 
+              <button class='btn btn-success' id='submit'>Go!</button> 
             </form>         
           </div>
 
-          <div id='guesses'>
+          <div id='guesses' class='row'>
             <!-- unordered list of guesses -->
             <ul class='guess'>
               <li>-</li>
@@ -37,25 +38,25 @@
 
           <div id="menu-btns">
             <!-- reset and hint buttons -->
-            <button id='reset'>Reset</button>
-            <button id='hint'>Hint</button>
+            <button class='btn btn-warning' id='reset'>Reset</button>
+            <button class='btn btn-info' id='hint'>Hint</button>
           </div>
         </div>
       </div>
 
 
 
-    <div id='footer'>
+    <div id='footer row'>
         <div>
-          <div class='center'>
+          <div class='col-sm-4 center'>
             <img src='fa-logo@2x.png'></img>
           </div>
 
-          <div class='center'>
+          <div class='col-sm-4 center'>
             <h4>Project by YOUR NAME HERE</h4>
           </div>
 
-          <div class='center'>
+          <div class='col-sm-4 center'>
             <img src='grace_hopper_academy.png'></img>
           </div>
 

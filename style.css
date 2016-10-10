@@ -1,3 +1,11 @@
+html {
+  box-sizing: 'border-box'
+}
+
+#input-parent {
+  width: 160px;
+  margin: 0 auto;
+}
 
 .center 
 {
@@ -9,7 +17,7 @@ ul {
 }
 img {
   display: inline;
-  width: 200px;
+  width: 250px;
   height: 100px;
 }
 #footer {
