@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
-  <body class='container center'>
+  <body>
 
-      <div id='app'>
+      <div id='app' class='container center'>
 
         <div id='headers'>
           <!-- Title and subtitles! -->
@@ -20,19 +20,19 @@
           <div id='input-parent' class='row'>
             <!-- Player's guess input, and submit button -->
             <form>  
-              <input id='player-input' maxlength="3" autofocus="true" class='center' placeholder="#"><br>
+              <input id='player-input' maxlength="3" autofocus="true" class='center ' placeholder="#"><br>
               <button class='btn btn-success' id='submit'>Go!</button> 
             </form>         
           </div>
 
-          <div id='guesses' class='row'>
+          <div id='guesses'>
             <!-- unordered list of guesses -->
-            <ul class='guess'>
-              <li>-</li>
-              <li>-</li>
-              <li>-</li>
-              <li>-</li>
-              <li>-</li>
+            <ul>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
+              <li class='guess'>-</li>
             </ul>
           </div>
 
@@ -46,21 +46,19 @@
 
 
 
-    <div id='footer row'>
-        <div>
-          <div class='col-sm-4 center'>
+    <div id='footer' class='center'>
+        <div class='row'>
+          <div class='col-sm-4'>
             <img src='fa-logo@2x.png'></img>
           </div>
 
-          <div class='col-sm-4 center'>
+          <div class='col-sm-4'>
             <h4>Project by YOUR NAME HERE</h4>
           </div>
 
-          <div class='col-sm-4 center'>
-            <img src='grace_hopper_academy.png'></img>
+          <div class='col-sm-4'>
+            <img src='grace_hopper_academy_trans.png'></img>
           </div>
-
-
         </div>
     </div>
 
