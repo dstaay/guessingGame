@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-image: url('assets/xmen.jpg');
+  background-image: url('../assets/xmen.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
