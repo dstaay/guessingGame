@@ -1,5 +1,10 @@
+'use strict'
+/*jslint browser: true*/ /*global  $*/
+
+
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 100;
+
 
 function generateWinningNumber( min = MIN_NUMBER , max = MAX_NUMBER ) {
 	return min + Math.round( Math.random() * ( max - min ) );
@@ -37,7 +42,7 @@ class Game {
 	}
 
 	playersGuessSubmission( num ) {
-		if ( num < MIN_NUMBER || num > MAX_NUMBER || typeof num !== 'number' ) {
+		if ( num < MIN_NUMBER || num > MAX_NUMBER || typeof num !== 'number' || isNaN(num)) {
 			throw 'That is an invalid guess.';
 		}
 		this.playersGuess = num;
@@ -78,3 +83,77 @@ function newGame() {
 	return new Game();
 }
 
+///////////////////////////////////////////////////////////
+//						QUERY Calls						//
+//////////////////////////////////////////////////////////
+
+// Helper function 
+
+function htmlUpdate(game, guess) {
+
+try {
+	var gameResponse = game.playersGuessSubmission(+guess);
+
+
+	if (gameResponse != 'You have already guessed that number.') {
+		$('#guesses').find('.guess-empty:first').text(guess).addClass('guess-entered')
+			.removeClass('guess-empty');
+	} 
+
+	if (gameResponse == 'You Win!' || gameResponse == 'You Lose.') {
+		$('#headers').find('h1').text(gameResponse);
+		$('#headers').find('h2').text('press reset to play again.');
+		$('#submit').prop( 'disabled', true);
+		$('#hint').prop( 'disabled', true);
+	} else if (gameResponse != 'You have already guessed that number.') {
+		$('#headers').find('h1').text(gameResponse);
+		$('#headers').find('h2').text(game.isLower() ? 'Guess Higher' : 'Guess Lower');
+	} else {
+		$('#headers').find('h1').text(gameResponse);
+		$('#headers').find('h2').text('Guess again.');
+	}
+} catch( err ) { 
+	console.log( err ); 
+}
+}
+
+// Event handlers
+
+$(document).ready(function() {
+
+	var game = newGame();
+	var guess;
+
+	$( '#reset' ).on('click', function(e) {
+		e.preventDefault();
+
+		game = newGame();
+
+		$('#guesses').find('.guess-entered').text('-').addClass('guess-empty')
+			.removeClass('guess-entered');
+		$('#headers').find('h1').text('Guessing Game');
+		$('#headers').find('h2').text('Guess a number between 1 and 100');
+		$('#submit').prop( 'disabled', false);
+		$('#hint').prop( 'disabled', false);
+	});
+
+
+	$( '#hint' ).on( 'click', function(e) {
+		e.preventDefault();
+		$('#headers').find('h1').text('Ok, I\'ll help you out, this 1 time...');
+		$('#headers').find('h2').text('the number is in set: ' + game.provideHint().sort());
+		$('#hint').prop( 'disabled', true)
+	})
+	$( '#submit' ).on( 'click', function(e) { 
+		e.preventDefault();
+		guess = $( '#player-input').val();
+		$('#player-input').val('');
+		htmlUpdate ( game, guess );
+	});
+
+	$( '.input-parent').on('keyup', function (e) {
+		if( e.keyCode == 13) {
+			$('.#submit').trigger('click');
+		}
+	});
+});
